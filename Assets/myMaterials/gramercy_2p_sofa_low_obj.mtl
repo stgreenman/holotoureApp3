@@ -1,0 +1,35 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 02.06.2015 00:17:45
+
+newmtl donghia_wood
+	Ns 35.0000
+	Ni 1.6000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.1059 0.0275 0.0157
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka M:\models\turbosquid\donghia_wood_d.jpg
+	map_Kd M:\models\turbosquid\donghia_wood_d.jpg
+	map_bump M:\models\turbosquid\donghia_wood_d.jpg
+	bump M:\models\turbosquid\donghia_wood_d.jpg
+	map_refl Raytrace_Raytrace.tga
+
+newmtl rubelli_vello_d_oro_pietra
+	Ns 30.0000
+	Ni 1.6000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.4353 0.4353 0.4353
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka Map__1_Falloff.tga
+	map_Kd Map__1_Falloff.tga
+	map_bump -bm 0.7500 Map__5_Normal_Bump.tga
+	map_refl Mask_Mask.tga

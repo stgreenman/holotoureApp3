@@ -1,0 +1,1 @@
+{"myPairings":[{"FurnName":"Soft Sofa free 01","id":1,"DefaultMaterial":0,"IconName":"BenchIcon"},{"FurnName":"Greydon Desk","id":2,"DefaultMaterial":0,"IconName":"GreydonDeskIcon"}]}
