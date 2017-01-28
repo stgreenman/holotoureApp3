@@ -2591,7 +2591,7 @@ MonoBehaviour:
   MyMaterials: []
   myCatalog: {fileID: 1490001847}
   currentlySelected: {fileID: 0}
-  prevButton: {fileID: 0}
+  prevButton: {fileID: 1839984669}
   nextButton: {fileID: 2060600763}
   maxNumPerPage: 6
 --- !u!114 &937738232
@@ -3837,8 +3837,8 @@ MonoBehaviour:
   MyMaterials: []
   myCatalog: {fileID: 0}
   currentlySelected: {fileID: 0}
-  prevButton: {fileID: 0}
-  nextButton: {fileID: 0}
+  prevButton: {fileID: 1988939272}
+  nextButton: {fileID: 1420160042}
   maxNumPerPage: 20
 --- !u!114 &1490001848
 MonoBehaviour:
