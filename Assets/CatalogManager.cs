@@ -14,10 +14,12 @@ public class CatalogManager : CustomerFurnitureMenu {
     List<CustomerManager.FurniturePreference> CurrentInfo;
 
     List<FurnitureManager.FurniturePairing> NotAddedFurniture;
-
+	FurnitureManager.FurnitureType currentType = FurnitureManager.FurnitureType.Any;
+	public CustomerFurnitureMenu mainCustomerMenu;
     private void Awake()
     {
         FurnManager = GameObject.FindObjectOfType<FurnitureManager>();
+
     }
 
     public void OpenCatalog(List<CustomerManager.FurniturePreference> info)
@@ -43,12 +45,39 @@ public class CatalogManager : CustomerFurnitureMenu {
                 NotAddedFurniture.Add(furn);
             }
         }
-
+		LoadFurnitureType (currentType);
         LoadPage(0);
 
     }
 
+	void LoadFurnitureType(object furnT)
+	{FurnitureManager.FurnitureType furnType = (FurnitureManager.FurnitureType)furnT;
+		FurnManager = GameObject.FindObjectOfType<FurnitureManager>();
 
+		this.gameObject.transform.parent.gameObject.SetActive(true);
+
+		NotAddedFurniture = new List<FurnitureManager.FurniturePairing>();
+		foreach (FurnitureManager.FurniturePairing furn in FurnManager.myRegistry.myPairings)
+		{
+			bool alreadyUsed = false;
+			Debug.Log ("Current is " + CurrentInfo);
+			foreach (CustomerManager.FurniturePreference customerPref in CurrentInfo)
+			{
+				if (customerPref.FurnitureID == furn.id)
+				{
+					alreadyUsed = true;
+					break; }
+			}
+			if (!alreadyUsed && (furnType == furn.myType || furnType == FurnitureManager.FurnitureType.Any))
+			{
+				NotAddedFurniture.Add(furn);
+			}
+		}
+
+		LoadPage(0);
+	
+	
+	}
 
 
    void LoadPage(int num)
@@ -73,6 +102,9 @@ public class CatalogManager : CustomerFurnitureMenu {
             obj.transform.FindChild("Icon").GetComponent<Image>().sprite = NotAddedFurniture[i].myIcon;
 
             obj.transform.localScale = new Vector3(1, 1, 1);
+			Vector3 tempPos = obj.transform.localPosition;
+			tempPos.z = -2f;
+			obj.transform.localPosition = tempPos;
             myPanels.Add(obj);
         }
 
@@ -82,25 +114,23 @@ public class CatalogManager : CustomerFurnitureMenu {
 
 	public void ReturnPrefrence(FurnitureManager.FurniturePairing pairing)
 	{
-
-		NotAddedFurniture.Add (pairing);
-		LoadPage (currentPage);
+		if (NotAddedFurniture != null) {
+			//NotAddedFurniture.Add (pairing);
+			LoadFurnitureType (currentType);
+			LoadPage (currentPage);
+		}
 	}
 
 	public void newCustPref(FurnitureManager.FurniturePairing pairing)
 	{
 		CustomerManager.FurniturePreference newPref = new CustomerManager.FurniturePreference(pairing);
+		mainCustomerMenu.addPrefrence (newPref);
 
-		GameObject.FindObjectOfType<CustomerFurnitureMenu>().addPrefrence(newPref);
 
-		NotAddedFurniture.Remove (pairing);
-		Debug.Log ("Reamingin size is " + NotAddedFurniture.Count);
-		if (currentPage == NotAddedFurniture.Count / maxNumPerPage)
-		{
-			currentPage = 0;
+		if (this.gameObject.transform.parent.gameObject.activeSelf) {
+			LoadFurnitureType (currentType);
+			LoadPage (currentPage);
 		}
-
-		LoadPage(currentPage);
 	}
 
 
@@ -121,9 +151,10 @@ public class CatalogManager : CustomerFurnitureMenu {
         {
             currentPage = 0;
         }
-
-        LoadPage(currentPage);
-
+		if (this.gameObject.transform.parent.gameObject.activeSelf) {
+			LoadFurnitureType (currentType);
+			LoadPage (currentPage);
+		}
     // MyPrefs[currentPage * maxNumPerPage + Index].FurniturePick.FurnObj, );
     }
 
@@ -136,7 +167,10 @@ public class CatalogManager : CustomerFurnitureMenu {
 
 		Debug.Log ("Creating new guy");
 		GameObject newFurniture = (GameObject)Instantiate (NotAddedFurniture [currentPage * maxNumPerPage + Index].FurnObj, spawnLocation, Quaternion.identity);
-		newFurniture.transform.LookAt (GameObject.FindObjectOfType<Camera> ().transform.position);
+
+		Vector3 CameraPos = GameObject.FindObjectOfType<Camera> ().transform.position;
+		CameraPos.y = newFurniture.transform.position.y;
+		newFurniture.transform.LookAt (CameraPos);
 
 		foreach(MeshRenderer mesh in newFurniture.GetComponentsInChildren<MeshRenderer>())
 		{		mesh.gameObject.AddComponent<MeshCollider> ();

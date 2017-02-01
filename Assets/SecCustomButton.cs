@@ -30,6 +30,7 @@ public class SecCustomButton: MonoBehaviour {
 	{
 
 			OtherScript.SendMessage (functionName, variable, SendMessageOptions.DontRequireReceiver);
+			GameObject.Find ("MenuOpener").SendMessage ("turnOff", SendMessageOptions.DontRequireReceiver);
 		button.Selected = false;
 
 

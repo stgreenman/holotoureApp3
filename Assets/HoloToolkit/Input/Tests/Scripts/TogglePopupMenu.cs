@@ -89,7 +89,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
 						StartCoroutine (DelayedOpening (source));
 
 					}
-
+					Debug.Log ("Dismissing");
 					popupMenu.Dismiss ();
 
 

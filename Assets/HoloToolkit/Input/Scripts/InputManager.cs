@@ -265,7 +265,7 @@ namespace HoloToolkit.Unity.InputModule
             where T : IEventSystemHandler
         {
             if (disabledRefCount > 0)
-            {
+			{
                 return;
             }
 

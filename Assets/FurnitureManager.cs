@@ -7,6 +7,11 @@ using System;
 
 public class FurnitureManager : MonoBehaviour {
 
+
+	public enum FurnitureType
+	{
+		Chair, Table, Couch, Bed, Any
+	}
 	public FurnitureRegistry myRegistry;
 	public bool saveOnStart; 
 	public static FurnitureManager instance;
@@ -71,7 +76,7 @@ public class FurnitureManager : MonoBehaviour {
 		[NonSerialized]
 		public Sprite myIcon;
 
-
+		public FurnitureType myType;
 
 	}
 

@@ -53,6 +53,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4529709225665676}
+  - component: {fileID: 114930170654951316}
+  - component: {fileID: 114164934223132910}
+  - component: {fileID: 114223587854204656}
+  - component: {fileID: 114898014108789592}
+  - component: {fileID: 114834295666598604}
   m_Layer: 0
   m_Name: Soft Sofa free 01
   m_TagString: Untagged
@@ -190,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 1539504862482090}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
   m_Children:
   - {fileID: 4885972201705234}
   - {fileID: 4315990865636076}
@@ -221,7 +226,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1440312059288408}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.542368, y: 4.9667177, z: 5.699282}
+  m_LocalPosition: {x: -1114.4529, y: 241.16176, z: -494.8189}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4394872099827322}
@@ -482,3 +487,81 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1684764372271082}
   m_Mesh: {fileID: 4300008, guid: 21478d1f52e7ca34682474d0e5161af3, type: 3}
+--- !u!114 &114164934223132910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440312059288408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b79c91d1ffb021347a4135df5ddd1efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  CursorOffset: {x: 0, y: 0, z: 0}
+  CursorNormal: {x: 0, y: 0, z: -1}
+  CursorScaleOffset: {x: 1, y: 1, z: 1}
+  SnapCursor: 0
+  UseGazeBasedNormal: 0
+  HideCursorOnFocus: 0
+  CursorTriggerName: 
+--- !u!114 &114223587854204656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440312059288408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e791f54304a18e44895bc2f08871229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToolTip: {fileID: 0}
+  ToolTipRenderer: {fileID: 0}
+  ToolTipFadeTime: 0.25
+  ToolTipDelayTime: 0.5
+  ButtonAnimator: {fileID: 0}
+  EnableActivation: 1
+--- !u!114 &114834295666598604
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440312059288408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e56a6ffca3a66b54189d6d303078cbf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsEnabled: 1
+--- !u!114 &114898014108789592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440312059288408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5a0a60fbe897549ad0bfe2039f12b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HostTransform: {fileID: 0}
+  DistanceScale: 2
+  IsKeepUpright: 1
+  IsOrientTowardsUser: 0
+  IsDraggingEnabled: 1
+--- !u!114 &114930170654951316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1440312059288408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fefa817899f680e429fafbb43d96762c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuOffSet: {x: -0.1, y: -0.1, z: 0}
+  popupMenu: {fileID: 0}
+  button: {fileID: 0}
