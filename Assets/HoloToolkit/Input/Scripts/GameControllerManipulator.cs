@@ -1,14 +1,44 @@
 ﻿using UnityEngine;
 
-namespace HoloToolkit.Unity.InputModule
+namespace HoloToolkit.Unity.InputModule.Tests
 {
     /// <summary>
     /// Allows the user to place and rotate GameObjects using a game controller.
     /// TODO This should be converted to an input source.
     /// </summary>
     /// <remarks>Make sure to enable the HumanInterfaceDevice capability before using.</remarks>
-    public class GameControllerManipulator : MonoBehaviour
+	public class GameControllerManipulator : MonoBehaviour, 
+	IInputHandler
     {
+
+
+
+
+		public void OnInputUp(InputEventData eventData)
+		{
+			
+			allowedToRotate = false;
+
+		}
+
+		public void OnInputDown(InputEventData eventData)
+		{
+			if (allowedToRotate)
+			{
+				// We're already handling drag input, so we can't start a new drag operation.
+				return;
+			}
+
+			if (!eventData.InputSource.SupportsInputInfo(eventData.SourceId, SupportedInputInfo.Position))
+			{
+				// The input source must provide positional data for this script to be usable
+				return;
+			}
+			allowedToRotate = true;
+
+		}
+		bool allowedToRotate;
+
         [Tooltip("Name of the joystick axis that moves the object along X as set in InputManager")]
         public string MoveXAxisName = "ControllerLeftStickX";
         [Tooltip("Speed of movement along X")]
@@ -56,20 +86,12 @@ namespace HoloToolkit.Unity.InputModule
             Debug.Log("I Exist on " + this.gameObject);
         }
 
+		public GameObject objectToManipulate;
+
         // Update is called once per frame
         private void Update()
         {
-            GameObject objectToManipulate;
-
-            if (!MoveGazeTarget)
-            {
-                objectToManipulate = gameObject;
-            }
-            else
-            {
-                objectToManipulate = lastAffectedObject ?? GazeManager.Instance.HitObject;
-            }
-
+           
             if (objectToManipulate == null)
             {
                 return;
@@ -79,7 +101,7 @@ namespace HoloToolkit.Unity.InputModule
 
             //Rotate
             var noRotateModifier = string.IsNullOrEmpty(RotateModifierButtonName);
-            var enableRotate = noRotateModifier || Input.GetButton(RotateModifierButtonName);
+            var enableRotate = noRotateModifier || Input.GetButton(RotateModifierButtonName) ||allowedToRotate;
 
             float rz = 0;
             float ry = 0;
@@ -130,6 +152,9 @@ namespace HoloToolkit.Unity.InputModule
                 stickDistance = 0;
             }
 
+			Vector3 fw = objectToManipulate.transform.forward;
+			fw.y = 0;
+			objectToManipulate.transform.forward = fw.normalized;
 
             if (stickInFrontOfMe || x != 0 || y != 0 || z != 0 || rz != 0 || ry != 0 || rx != 0)
             {

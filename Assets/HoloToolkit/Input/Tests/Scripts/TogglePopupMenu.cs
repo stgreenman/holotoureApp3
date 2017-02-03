@@ -36,6 +36,11 @@ namespace HoloToolkit.Unity.InputModule.Tests
 			}
 			popupMenu.transform.GetComponentInChildren<ChangePref> ().setFurniture (currentFurniture);
 			popupMenu.transform.GetComponentInChildren<ChangePref> ().setInFolder (inFolder);
+			popupMenu.transform.GetComponentInChildren<DeleteButton> ().currentObject = this.gameObject;
+
+			foreach (Rotater rot in popupMenu.transform.GetComponentsInChildren<Rotater> ()) {
+				rot.objectToDrag = this.gameObject;
+			}
 			popupMenu.transform.Find ("TextureMenu").transform.GetComponentInChildren<TextureMenu> ().currentlySelected = this.gameObject;
 		}
 
@@ -79,6 +84,11 @@ namespace HoloToolkit.Unity.InputModule.Tests
 					foreach (ButtonObjectScaler but in popupMenu.transform.GetComponentsInChildren<ButtonObjectScaler> ()) {
 						but.setObjectToScale (this.gameObject);
 					}
+					foreach (Rotater rot in popupMenu.transform.GetComponentsInChildren<Rotater> ()) {
+						rot.objectToDrag = this.gameObject;
+					}
+					popupMenu.transform.GetComponentInChildren<DeleteButton> ().currentObject = this.gameObject;
+
 					popupMenu.transform.GetComponentInChildren<ChangePref> ().setFurniture (currentFurniture);
 					popupMenu.transform.Find ("TextureMenu").transform.GetComponentInChildren<TextureMenu> ().currentlySelected = this.gameObject;
 					// pop children set to variables

@@ -42,7 +42,7 @@ public class ChangePref : MonoBehaviour {
 		public void setFurniture(FurnitureManager.FurniturePairing currentFur)
 		{
 			currentFurniture = currentFur;
-			Debug.Log ("Setting current furniture to " + currentFur.FurnName);
+			//Debug.Log ("Setting current furniture to " + currentFur.FurnName);
 		}
 
 		private void OnButtonPressed(TestButton source)

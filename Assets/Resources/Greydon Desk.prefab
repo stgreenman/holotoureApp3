@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114999917505758766}
   - component: {fileID: 114992716525630530}
   - component: {fileID: 114896133054879812}
+  - component: {fileID: 122351052052697552}
   m_Layer: 0
   m_Name: Greydon Desk
   m_TagString: Untagged
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1138234085265686}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.7725549, y: 11.679655, z: -12.902192}
+  m_LocalPosition: {x: 10.476009, y: -8.146406, z: 0.13508844}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4543599960740760}
@@ -89,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c393ffe323091d04da2f72a3435b4657, type: 2}
+  - {fileID: 2100000, guid: 560b8dac995b7894597e3e2c8d34febb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HostTransform: {fileID: 4955055306215024}
   DistanceScale: 2
-  IsKeepUpright: 0
+  IsKeepUpright: 1
   IsOrientTowardsUser: 0
   IsDraggingEnabled: 1
 --- !u!114 &114992716525630530
@@ -206,3 +207,14 @@ MonoBehaviour:
   ToolTipDelayTime: 0.5
   ButtonAnimator: {fileID: 0}
   EnableActivation: 1
+--- !u!122 &122351052052697552
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1138234085265686}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278229142
+  m_Size: 0.7

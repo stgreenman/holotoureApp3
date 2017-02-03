@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114169354438604726}
   - component: {fileID: 114595350367943490}
   - component: {fileID: 114405589727908302}
+  - component: {fileID: 122159874592358322}
   m_Layer: 0
   m_Name: FootStool
   m_TagString: Untagged
@@ -69,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1908561736982196}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.40129304, y: -2.5297801, z: 7.092288}
+  m_LocalPosition: {x: 3.9664793, y: -12.98613, z: -2.3558438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4743010360398750}
@@ -89,7 +90,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b0e5eae251c085f45a298db111ece0f8, type: 2}
+  - {fileID: 2100000, guid: 09dcd568263392449b7af58bd89dc97e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -206,3 +207,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsEnabled: 1
+--- !u!122 &122159874592358322
+Halo:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908561736982196}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279345567
+  m_Size: 0.6

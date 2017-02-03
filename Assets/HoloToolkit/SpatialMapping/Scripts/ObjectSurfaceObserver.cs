@@ -38,6 +38,7 @@ namespace HoloToolkit.Unity.SpatialMapping
             }
 
             GameObject roomObject = Instantiate(roomModel);
+			Debug.Log ("Room is "+ roomObject);
             Cleanup();
 
             try

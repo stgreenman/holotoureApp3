@@ -19,13 +19,13 @@ namespace HoloToolkit.Unity.InputModule.Tests
 	}
 	
 		public void OnInputUp(InputEventData eventData){
-		//public void OnInputUp(InputEventData eventData){
+	
 			inputDown = false;
 
 
 		}
 		public 	void OnInputDown(InputEventData eventData){
-			Debug.Log ("Input down");
+		//	Debug.Log ("Input down");
 
 			inputDown = true;
 			if (isButtonDown != null) {
@@ -35,12 +35,12 @@ namespace HoloToolkit.Unity.InputModule.Tests
 		}
 
 		public void turnOff()
-		{Debug.Log ("Turning off");
+		{//Debug.Log ("Turning off");
 			inputDown = false;
 			Invoke ("delayedTurnOff", .11f);
 		}
 		void delayedTurnOff(){
-			Debug.Log ("Really turn off");
+			//Debug.Log ("Really turn off");
 			inputDown = false;
 			StopCoroutine (isButtonDown);
 		}

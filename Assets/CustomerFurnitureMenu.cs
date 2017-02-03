@@ -36,7 +36,7 @@ public class CustomerFurnitureMenu : MonoBehaviour {
    
     public void OpenCatalog()
     {
-        Debug.Log("Trying to open catalog");
+       // Debug.Log("Trying to open catalog");
         Catalog.OpenCatalog(MyPrefs );
     }
 
@@ -70,7 +70,7 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 		for (int i =num*maxNumPerPage; i < num*maxNumPerPage+Mathf.Min (MyPrefs.Count - num*maxNumPerPage, maxNumPerPage); i++) {
 			GameObject obj = (GameObject)Instantiate (buttonTemplate, this.transform);
 
-			obj.transform.FindChild ("Title").GetComponent<Text> ().text =MyPrefs[i].FurniturePick.FurnName;
+			obj.transform.FindChild ("Title").GetComponent<Text> ().text =MyPrefs[i].FurniturePick.FurnName.Substring(0,Math.Min(10,MyPrefs[i].FurniturePick.FurnName.Length  ));
 
 			obj.GetComponent<CustomButton> ().OtherScript = this;
 			obj.GetComponent<CustomButton> ().variable = i - num * maxNumPerPage;
@@ -81,8 +81,9 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 
 			obj.transform.localScale = new Vector3 (1,1,1);
 			Vector3 tempPos = obj.transform.localPosition;
-			tempPos.z = -2f;
+			tempPos.z = -3.5f;
 			obj.transform.localPosition = tempPos;
+
 			myPanels.Add (obj);
 		}
 
@@ -106,7 +107,7 @@ public class CustomerFurnitureMenu : MonoBehaviour {
     public void addPrefrence(CustomerManager.FurniturePreference preference)
     {
         MyPrefs.Add(preference);
-		Debug.Log ("Adding a preference " +this.gameObject);
+		//Debug.Log ("Adding a preference " +this.gameObject);
         LoadPage(currentPage);
 
     }
@@ -142,8 +143,16 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 		int Index = (int)Ind;
 		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 5 + GameObject.FindObjectOfType<Camera> ().transform.position;
 
-		Debug.Log ("Creating new guy");
+		//Debug.Log ("Creating new guy");
+
+		RaycastHit hit;
+
+		if (Physics.Raycast (spawnLocation, Vector3.down, out hit)) {
+			spawnLocation = hit.point;
+		}
 		GameObject newFurniture = (GameObject)Instantiate (MyPrefs [currentPage * maxNumPerPage + Index].FurniturePick.FurnObj, spawnLocation, Quaternion.identity);
+
+
 		Vector3 CameraPos = GameObject.FindObjectOfType<Camera> ().transform.position;
 		CameraPos.y = newFurniture.transform.position.y;
 		newFurniture.transform.LookAt (CameraPos);
@@ -152,6 +161,7 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 			{		mesh.gameObject.AddComponent<MeshCollider> ();
 
 			}
+		TextureMenu.instance.loadPreferences (MyPrefs [currentPage * maxNumPerPage + Index]);
 		TestButton testb = newFurniture.GetComponent<TestButton> ();
 		TogglePopupMenu Temp = newFurniture.GetComponent<TogglePopupMenu> ();
 		Temp.set (testb,popupMenu, MyPrefs[currentPage * maxNumPerPage + Index].FurniturePick, true);
@@ -169,12 +179,13 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 
 	public void openMenu(bool openToSide)
 	{		gameObject.transform.parent.gameObject.SetActive (true);
-		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 7 + GameObject.FindObjectOfType<Camera> ().transform.position;
+		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 5 + GameObject.FindObjectOfType<Camera> ().transform.position;
 
 		gameObject.transform.parent.position = spawnLocation;
 		gameObject.transform.parent.LookAt(gameObject.transform.parent.position*2 -  GameObject.FindObjectOfType<Camera> ().transform.position);
 		if (openToSide) {
 			gameObject.transform.parent.Translate (Vector3.right, Space.Self);
+			gameObject.transform.parent.Translate (Vector3.up * .4f, Space.Self);
 		}
 		isDragging = false;
 	}

@@ -113,7 +113,7 @@ namespace HoloToolkit.Unity.InputModule
         /// <summary>
         /// Remove the last game object from the fallback input stack.
         /// </summary>
-        public void PopFallbackInputHandler()
+		  void PopFallbackInputHandler()
         {
 			if (fallbackInputStack.Count > 0) {
 				fallbackInputStack.Pop ();
@@ -123,7 +123,7 @@ namespace HoloToolkit.Unity.InputModule
         /// <summary>
         /// Clear all fallback input handlers off the stack.
         /// </summary>
-        public void ClearFallbackInputStack()
+         void ClearFallbackInputStack()
         {
             fallbackInputStack.Clear();
         }
@@ -288,7 +288,7 @@ namespace HoloToolkit.Unity.InputModule
                 {
 
                     if (ExecuteEvents.ExecuteHierarchy(focusedObject, eventData, eventHandler))
-                    {
+					{
                         return;
                     }
                 }
@@ -296,7 +296,7 @@ namespace HoloToolkit.Unity.InputModule
                 else
                 {
                     if (ExecuteEvents.ExecuteHierarchy(modalInput, eventData, eventHandler))
-                    {
+					{
                         return;
                     }
                 }
@@ -304,19 +304,24 @@ namespace HoloToolkit.Unity.InputModule
 
             // If event was not handled by modal, pass it on to the current focused object
             if (GazeManager.Instance.HitObject != null)
-            {
+			{
                 bool eventHandled = ExecuteEvents.ExecuteHierarchy(GazeManager.Instance.HitObject, eventData, eventHandler);
                 if (eventHandled)
-                {
+				{
                     return; 
                 }
             }
 
             // If event was not handled by the focused object, pass it on to any fallback handlers
             if (fallbackInputStack.Count > 0)
-            {
-                GameObject fallbackInput = fallbackInputStack.Peek();
-                ExecuteEvents.ExecuteHierarchy(fallbackInput, eventData, eventHandler);
+			{
+
+				foreach (GameObject obj in fallbackInputStack) {
+					ExecuteEvents.ExecuteHierarchy(obj, eventData, eventHandler);
+				}
+                //GameObject fallbackInput = fallbackInputStack.Peek();
+			
+                //ExecuteEvents.ExecuteHierarchy(fallbackInput, eventData, eventHandler);
             }
         }
 

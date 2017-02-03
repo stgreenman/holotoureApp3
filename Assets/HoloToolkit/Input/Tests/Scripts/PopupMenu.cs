@@ -144,7 +144,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
             if (closeOnNonTargetedTap)
             {
                // Debug.Log("Before Pop");
-                InputManager.Instance.PopFallbackInputHandler();
+               // InputManager.Instance.PopFallbackInputHandler();
                 //Debug.Log("After Pop");
             }
 

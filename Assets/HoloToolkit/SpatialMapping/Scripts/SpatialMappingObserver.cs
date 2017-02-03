@@ -145,7 +145,7 @@ namespace HoloToolkit.Unity.SpatialMapping
             {
                 Debug.Log("Starting the observer.");
                 ObserverState = ObserverStates.Running;
-
+				Debug.Log ("Finishing Observer");
                 // We want the first update immediately.
                 updateTime = 0;
             }

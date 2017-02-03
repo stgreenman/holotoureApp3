@@ -38,7 +38,7 @@ public class FurnitureManager : MonoBehaviour {
 
 		foreach (FurniturePairing pair in myRegistry.myPairings) {
 			pair.FurnObj = (GameObject)Resources.Load (pair.FurnName);
-			Debug.Log ("Sprite type is " +Resources.Load (pair.IconName).GetType());
+			//Debug.Log ("Sprite type is " +Resources.Load (pair.IconName).GetType());
 
 			Texture2D tempText = (UnityEngine.Texture2D)Resources.Load (pair.IconName);
 			pair.myIcon = Sprite.Create( tempText,new Rect(0,0,tempText.width,tempText.height),Vector2.zero);

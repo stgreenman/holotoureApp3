@@ -1,6 +1,7 @@
 ﻿using System;
 using HoloToolkit.Unity.InputModule;
 using UnityEngine;
+
 using UnityEngine.EventSystems;
 
 
@@ -27,12 +28,14 @@ public class Menu : MonoBehaviour
 		bool sameMenu = (newMenu == currentMenu);
 		if (currentMenu != null)// && newMenu !\= currentMenu)
         {
-          
+			//((Behaviour)currentMenu.GetComponentInChildren("Halo")).enabled = false;
+
             currentMenu.SendMessage("OnInputClicked", new InputEventData(null), SendMessageOptions.DontRequireReceiver);
         }
 		if (sameMenu) {
 			return false;}
         currentMenu = newMenu;
+		//((Behaviour)currentMenu.GetComponentInChildren("Halo")).enabled = true;
 		return true;
     }
 

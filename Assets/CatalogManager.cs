@@ -60,7 +60,7 @@ public class CatalogManager : CustomerFurnitureMenu {
 		foreach (FurnitureManager.FurniturePairing furn in FurnManager.myRegistry.myPairings)
 		{
 			bool alreadyUsed = false;
-			Debug.Log ("Current is " + CurrentInfo);
+		//	Debug.Log ("Current is " + CurrentInfo);
 			foreach (CustomerManager.FurniturePreference customerPref in CurrentInfo)
 			{
 				if (customerPref.FurnitureID == furn.id)
@@ -103,7 +103,7 @@ public class CatalogManager : CustomerFurnitureMenu {
 
             obj.transform.localScale = new Vector3(1, 1, 1);
 			Vector3 tempPos = obj.transform.localPosition;
-			tempPos.z = -2f;
+			tempPos.z = -3.5f;
 			obj.transform.localPosition = tempPos;
             myPanels.Add(obj);
         }
@@ -165,7 +165,7 @@ public class CatalogManager : CustomerFurnitureMenu {
 		int Index = (int)Ind;
 		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 5 + GameObject.FindObjectOfType<Camera> ().transform.position;
 
-		Debug.Log ("Creating new guy");
+		//Debug.Log ("Creating new guy");
 		GameObject newFurniture = (GameObject)Instantiate (NotAddedFurniture [currentPage * maxNumPerPage + Index].FurnObj, spawnLocation, Quaternion.identity);
 
 		Vector3 CameraPos = GameObject.FindObjectOfType<Camera> ().transform.position;

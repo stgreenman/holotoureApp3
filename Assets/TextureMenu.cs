@@ -26,7 +26,7 @@ public class TextureMenu : MonoBehaviour {
 
 	public void nextPage()
 	{
-		Debug.Log ("I am getting pressed");
+		//Debug.Log ("I am getting pressed");
 		if (currentPage < MyMaterials.Count / 7) {
 			currentPage++;
 		}
@@ -60,6 +60,10 @@ protected	void LoadPage(int num)
 
 			obj.GetComponent<CustomButton> ().functionName = "setObjectMaterial";
 			obj.transform.localScale = new Vector3 (1,1,1);
+			Vector3 tempPos = obj.transform.localPosition;
+			tempPos.z = -2f;
+			obj.transform.localPosition = tempPos;
+			obj.transform.localRotation = Quaternion.identity;
 			myPanels.Add (obj);
 		}
 
@@ -80,7 +84,7 @@ protected	void LoadPage(int num)
 
 
 	public void setObjectMaterial(Object mat)
-	{Debug.Log ("SetObjectMat is being called");
+	{//Debug.Log ("SetObjectMat is being called");
 
 		Material mater = (Material)mat;
 		foreach (MeshRenderer rend in currentlySelected.GetComponents<MeshRenderer>()) {
@@ -92,7 +96,7 @@ protected	void LoadPage(int num)
 	}
 
 	public void loadPreferences(CustomerManager.FurniturePreference info)
-	{
+	{//Debug.Log ("Loading ored");
 		MyMaterials = info.materialPicks;
 		myCatalog.Initialize ();
 		LoadPage (0);

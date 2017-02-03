@@ -49,7 +49,7 @@ public class CustomerManager : MonoBehaviour {
 
 		//REMOVE THIS LATER
 		CustomerFurnitureMenu.instance.loadPreferences(myRegistry.customerList [0]);
-		TextureMenu.instance.loadPreferences (myRegistry.customerList[0].furnPrefs[0]);
+
 		//GameObject.FindObjectOfType<CustomerFurnitureMenu> ().CreateFurntiture (0);
 	}
 	/*
