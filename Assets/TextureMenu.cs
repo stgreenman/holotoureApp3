@@ -27,7 +27,7 @@ public class TextureMenu : MonoBehaviour {
 	public void nextPage()
 	{
 		//Debug.Log ("I am getting pressed");
-		if (currentPage < MyMaterials.Count / 7) {
+		if (currentPage < MyMaterials.Count / maxNumPerPage) {
 			currentPage++;
 		}
 		LoadPage (currentPage);
@@ -77,7 +77,7 @@ protected	void LoadPage(int num)
 		if (currentPage == 0) {
 			prevButton.SetActive (false);
 		}
-		if (currentPage == ( MyMaterials.Count -1) / 7) {
+		if (currentPage == ( MyMaterials.Count -1) /  maxNumPerPage) {
 			nextButton.SetActive (false);
 		}
 	}
@@ -94,6 +94,15 @@ protected	void LoadPage(int num)
 			rend.material = mater;
 		}
 	}
+	int currentIndex;
+	public void CycleMaterials()
+	{currentIndex++;
+		if (currentIndex >= MyMaterials.Count) {
+			currentIndex = 0;}
+
+		setObjectMaterial (MyMaterials[currentIndex].mat);
+	
+	}
 
 	public void loadPreferences(CustomerManager.FurniturePreference info)
 	{//Debug.Log ("Loading ored");
@@ -104,9 +113,16 @@ protected	void LoadPage(int num)
 
 	void openCatalog(){
 		myCatalog.turnOn ( currentlySelected);
+
 	}
 
 
+	public void AlterNate(){
+		Debug.Log ("Alternating");
+		this.transform.parent.gameObject.SetActive (!this.transform.parent.gameObject.activeSelf);
+
+		myCatalog.Alternate( currentlySelected);
+	}
 
 
 

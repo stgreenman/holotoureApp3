@@ -8,8 +8,8 @@ public class ChangePref : MonoBehaviour {
 
 
 	public FurnitureManager.FurniturePairing currentFurniture;
-		public	CustomerFurnitureMenu customerMenu;
-		public CatalogManager myCatalog;
+	public	CustomerFurnitureMenu customerMenu;
+	public CatalogManager myCatalog;
 	public TextMesh myText;
 	bool inFolder;
 

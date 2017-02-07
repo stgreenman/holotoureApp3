@@ -115,7 +115,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
         /// Dismiss the details pane
         /// </summary>
         public void Dismiss()
-        {
+		{Debug.Log ("Being dismissed");
 			currentSelectedObject = null;
 
            // Debug.Log(" Dismissing " + this.gameObject);

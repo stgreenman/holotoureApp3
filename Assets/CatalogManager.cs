@@ -24,6 +24,9 @@ public class CatalogManager : CustomerFurnitureMenu {
 
     public void OpenCatalog(List<CustomerManager.FurniturePreference> info)
     {
+
+
+
         FurnManager = GameObject.FindObjectOfType<FurnitureManager>();
      
         this.gameObject.transform.parent.gameObject.SetActive(true);
@@ -157,7 +160,10 @@ public class CatalogManager : CustomerFurnitureMenu {
 		}
     // MyPrefs[currentPage * maxNumPerPage + Index].FurniturePick.FurnObj, );
     }
-
+	public void closeMenu()
+	{		gameObject.transform.parent.gameObject.SetActive (false);
+		mainCustomerMenu.transform.parent.gameObject.SetActive (true);
+	}
 
 
 	public void CreateFurntiture(object Ind)

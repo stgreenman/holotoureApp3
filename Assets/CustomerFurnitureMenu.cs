@@ -38,6 +38,7 @@ public class CustomerFurnitureMenu : MonoBehaviour {
     {
        // Debug.Log("Trying to open catalog");
         Catalog.OpenCatalog(MyPrefs );
+		this.transform.parent.gameObject.SetActive(false);
     }
 
 
@@ -133,9 +134,6 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 		LoadPage (0);
 	}
 
-	void openCatalog(){
-
-	}
 
 
 	public void CreateFurntiture(object Ind)
@@ -178,11 +176,11 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 	}
 
 	public void openMenu(bool openToSide)
-	{		gameObject.transform.parent.gameObject.SetActive (true);
+	{		gameObject.transform.parent.parent.gameObject.SetActive (true);
 		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 5 + GameObject.FindObjectOfType<Camera> ().transform.position;
 
-		gameObject.transform.parent.position = spawnLocation;
-		gameObject.transform.parent.LookAt(gameObject.transform.parent.position*2 -  GameObject.FindObjectOfType<Camera> ().transform.position);
+		gameObject.transform.parent.parent.position = spawnLocation;
+		gameObject.transform.parent.parent.LookAt(gameObject.transform.parent.position*2 -  GameObject.FindObjectOfType<Camera> ().transform.position);
 		if (openToSide) {
 			gameObject.transform.parent.Translate (Vector3.right, Space.Self);
 			gameObject.transform.parent.Translate (Vector3.up * .4f, Space.Self);
@@ -192,7 +190,9 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 
 
 	public void closeMenu()
-	{		gameObject.transform.parent.gameObject.SetActive (false);}
+	{		gameObject.transform.parent.gameObject.SetActive (false);
+		
+	}
 
 	public void stopDragging()
 	{

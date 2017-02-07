@@ -14,7 +14,7 @@ public class MyManager : MonoBehaviour {
         
 
 
-       // texturesPanel = GameObject.Find("Textures Panel");
+        //texturesPanel = GameObject.Find("Textures Panel");
 
         if (texturesPanel != null)
         {

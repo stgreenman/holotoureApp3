@@ -20,7 +20,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
 		FurnitureManager.FurniturePairing currentFurniture;
 		public void set(TestButton _button, PopupMenu _popupMenu, FurnitureManager.FurniturePairing currentFurn, bool inFolder){
 
-			Debug.Log ("Setting in pop up " + currentFurn.FurnName);
+			Debug.Log ("Setting in pop up " + currentFurn.FurnName + "  " + this.gameObject);
 			button = _button;
 			popupMenu = _popupMenu;
 			currentFurniture = currentFurn;
@@ -41,7 +41,8 @@ namespace HoloToolkit.Unity.InputModule.Tests
 			foreach (Rotater rot in popupMenu.transform.GetComponentsInChildren<Rotater> ()) {
 				rot.objectToDrag = this.gameObject;
 			}
-			popupMenu.transform.Find ("TextureMenu").transform.GetComponentInChildren<TextureMenu> ().currentlySelected = this.gameObject;
+		
+			popupMenu.transform.FindChild ("TextureMenu").transform.GetComponentInChildren<TextureMenu> ().currentlySelected = this.gameObject;
 		}
 
 

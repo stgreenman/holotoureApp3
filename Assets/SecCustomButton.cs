@@ -27,7 +27,7 @@ public class SecCustomButton: MonoBehaviour {
 
 	
 	private void OnButtonPressed(TestButton source)
-	{
+		{Debug.Log ("Is getting pressed "+ functionName + "  " + OtherScript);
 
 			OtherScript.SendMessage (functionName, variable, SendMessageOptions.DontRequireReceiver);
 			GameObject.Find ("MenuOpener").SendMessage ("turnOff", SendMessageOptions.DontRequireReceiver);

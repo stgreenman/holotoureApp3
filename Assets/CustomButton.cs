@@ -26,6 +26,7 @@ public class CustomButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 	public void OnPointerDown(PointerEventData data)
 	{
 		OtherScript.SendMessage (functionName, variable, SendMessageOptions.DontRequireReceiver);
+		Debug.Log ("This is getting clicked");
 		GameObject.Find ("MenuOpener").SendMessage ("turnOff", SendMessageOptions.DontRequireReceiver);
 
 

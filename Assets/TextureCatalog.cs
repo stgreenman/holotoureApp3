@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TextureCatalog : TextureMenu {
 
+	public TextureMenu mainMenu;
 
 	
 	public void turnOn (GameObject currentSelection){
@@ -14,6 +15,20 @@ public class TextureCatalog : TextureMenu {
 			LoadPage (0);
 		//} else {
 			//close ();}
+	}
+
+
+	public void AlterNate()
+	{
+		mainMenu.AlterNate ();
+	
+	}
+	public void Alternate(GameObject currentSelection)
+	{
+
+		this.transform.parent.gameObject.SetActive (!this.transform.parent.gameObject.activeSelf);
+		currentlySelected = currentSelection;
+		LoadPage (0);
 	}
 
 	public void close()
