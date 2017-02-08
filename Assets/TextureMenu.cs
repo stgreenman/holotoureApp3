@@ -84,9 +84,10 @@ protected	void LoadPage(int num)
 
 
 	public void setObjectMaterial(Object mat)
-	{//Debug.Log ("SetObjectMat is being called");
+	{
 
 		Material mater = (Material)mat;
+		Debug.Log ("SetObjectMat is being called from " + this.gameObject  + "   " + mater);
 		foreach (MeshRenderer rend in currentlySelected.GetComponents<MeshRenderer>()) {
 			rend.material = mater;
 		}

@@ -215,7 +215,9 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public void OnFocusEnter()
         {
             Focused = true;
-
+			if (ToolTip) {
+				ToolTip.gameObject.SetActive (true);
+			}
             // The first time the button is focused and the timer hasn't started, start the timer in a delayed mode
             if (Focused && toolTipTimer == 0.0f)
             {
@@ -228,7 +230,9 @@ namespace HoloToolkit.Unity.InputModule.Tests
         public void OnFocusExit()
         {
             Focused = false;
-
+			if (ToolTip) {
+				ToolTip.gameObject.SetActive (false);
+			}
             UpdateVisuals();
         }
     }

@@ -5,7 +5,9 @@ namespace HoloToolkit.Unity.InputModule.Tests
 {
 public class ChangePref : MonoBehaviour {
 
-
+		public SpriteRenderer myRenderer;
+		public Sprite Plus;
+		public Sprite minus;
 
 	public FurnitureManager.FurniturePairing currentFurniture;
 	public	CustomerFurnitureMenu customerMenu;
@@ -16,9 +18,11 @@ public class ChangePref : MonoBehaviour {
 	public void setInFolder(bool inOut)
 	{inFolder = inOut;
 		if (inOut) {
-			myText.text = "Remove\nFrom\nFolder";
+				myRenderer.sprite = minus;
+			myText.text = "Remove From Folder";
 		} else {
-			myText.text = "Add\nTo\nFolder";
+				myRenderer.sprite = Plus;
+			myText.text = "Add To Folder";
 		}
 
 

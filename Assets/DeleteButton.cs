@@ -31,6 +31,7 @@ public class DeleteButton : MonoBehaviour {
 
 	private void OnButtonPressed(TestButton source)
 	{
+			//GetComponentInParent<PopupMenu> ().Dismiss ();
 			Destroy (currentObject);
 			Menu.Instance.SetMenu (null);
 

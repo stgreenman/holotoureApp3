@@ -35,7 +35,7 @@ namespace HoloToolkit.Unity.InputModule.Tests
 		}
 
 		public void turnOff()
-		{Debug.Log ("Turning off");
+		{//Debug.Log ("Turning off");
 			inputDown = false;
 			Invoke ("delayedTurnOff", .11f);
 		}

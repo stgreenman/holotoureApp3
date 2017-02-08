@@ -84,6 +84,7 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 			Vector3 tempPos = obj.transform.localPosition;
 			tempPos.z = -3.5f;
 			obj.transform.localPosition = tempPos;
+			obj.transform.localRotation = Quaternion.identity;
 
 			myPanels.Add (obj);
 		}
@@ -123,10 +124,12 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 		}
 
 		Catalog.ReturnPrefrence (preference);
-
-		LoadPage(currentPage);
+		if (gameObject.transform.parent.parent.gameObject.activeSelf) {
+			LoadPage (currentPage);
+		}
 
 	}
+
 
     public void loadPreferences(CustomerManager.CustomerInfo info)
 	{
@@ -176,21 +179,23 @@ public class CustomerFurnitureMenu : MonoBehaviour {
 	}
 
 	public void openMenu(bool openToSide)
-	{		gameObject.transform.parent.parent.gameObject.SetActive (true);
+	{	Debug.Log("Opening menu");
+		gameObject.transform.parent.parent.gameObject.SetActive (true);
 		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 5 + GameObject.FindObjectOfType<Camera> ().transform.position;
 
 		gameObject.transform.parent.parent.position = spawnLocation;
 		gameObject.transform.parent.parent.LookAt(gameObject.transform.parent.position*2 -  GameObject.FindObjectOfType<Camera> ().transform.position);
 		if (openToSide) {
-			gameObject.transform.parent.Translate (Vector3.right, Space.Self);
-			gameObject.transform.parent.Translate (Vector3.up * .4f, Space.Self);
+			gameObject.transform.parent.parent.Translate (Vector3.right, Space.Self);
+			gameObject.transform.parent.parent.Translate (Vector3.up * .4f, Space.Self);
 		}
 		isDragging = false;
 	}
 
 
 	public void closeMenu()
-	{		gameObject.transform.parent.gameObject.SetActive (false);
+	{	
+		gameObject.transform.parent.parent.gameObject.SetActive (false);
 		
 	}
 

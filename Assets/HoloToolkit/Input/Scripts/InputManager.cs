@@ -266,6 +266,7 @@ namespace HoloToolkit.Unity.InputModule
         {
             if (disabledRefCount > 0)
 			{
+				//Debug.Log ("Returning A");
                 return;
             }
 
@@ -288,7 +289,7 @@ namespace HoloToolkit.Unity.InputModule
                 {
 
                     if (ExecuteEvents.ExecuteHierarchy(focusedObject, eventData, eventHandler))
-					{
+					{//Debug.Log ("Returning B");
                         return;
                     }
                 }
@@ -296,7 +297,7 @@ namespace HoloToolkit.Unity.InputModule
                 else
                 {
                     if (ExecuteEvents.ExecuteHierarchy(modalInput, eventData, eventHandler))
-					{
+					{//Debug.Log ("Returning C");
                         return;
                     }
                 }
@@ -307,7 +308,7 @@ namespace HoloToolkit.Unity.InputModule
 			{
                 bool eventHandled = ExecuteEvents.ExecuteHierarchy(GazeManager.Instance.HitObject, eventData, eventHandler);
                 if (eventHandled)
-				{
+				{//Debug.Log ("Returning D");
                     return; 
                 }
             }

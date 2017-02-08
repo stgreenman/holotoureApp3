@@ -108,6 +108,7 @@ public class CatalogManager : CustomerFurnitureMenu {
 			Vector3 tempPos = obj.transform.localPosition;
 			tempPos.z = -3.5f;
 			obj.transform.localPosition = tempPos;
+			obj.transform.localRotation = Quaternion.identity;
             myPanels.Add(obj);
         }
 
