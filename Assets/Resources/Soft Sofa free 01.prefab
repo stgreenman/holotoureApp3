@@ -577,7 +577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HostTransform: {fileID: 0}
-  DistanceScale: 2
+  DistanceScale: 6
   IsKeepUpright: 1
   IsOrientTowardsUser: 0
   IsDraggingEnabled: 1
