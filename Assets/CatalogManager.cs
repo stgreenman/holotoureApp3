@@ -173,6 +173,13 @@ public class CatalogManager : CustomerFurnitureMenu {
 		Vector3 spawnLocation = GameObject.FindObjectOfType<Camera> ().transform.forward * 5 + GameObject.FindObjectOfType<Camera> ().transform.position;
 
 		//Debug.Log ("Creating new guy");
+
+		RaycastHit hit;
+
+		if (Physics.Raycast (spawnLocation, Vector3.down, out hit)) {
+			spawnLocation = hit.point;
+		}
+		//Debug.Log ("Creating new guy");
 		GameObject newFurniture = (GameObject)Instantiate (NotAddedFurniture [currentPage * maxNumPerPage + Index].FurnObj, spawnLocation, Quaternion.identity);
 
 		Vector3 CameraPos = GameObject.FindObjectOfType<Camera> ().transform.position;

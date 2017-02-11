@@ -37,6 +37,8 @@ public class FurnitureManager : MonoBehaviour {
 */
 
 		foreach (FurniturePairing pair in myRegistry.myPairings) {
+
+			Debug.Log ("MYPAIR is" + pair.FurnName);
 			pair.FurnObj = (GameObject)Resources.Load (pair.FurnName);
 			//Debug.Log ("Sprite type is " +Resources.Load (pair.IconName).GetType());
 
