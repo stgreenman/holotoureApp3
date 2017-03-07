@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325941884826778}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.1018043, y: 1.3202906, z: 1.842906}
+  m_LocalPosition: {x: -2.6704557, y: -3.4133968, z: -4.7996063}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4472144172561988}
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefa817899f680e429fafbb43d96762c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuOffSet: {x: -0.1, y: -0.1, z: 0}
+  MenuOffSet: {x: 0, y: 0.8, z: 0}
   popupMenu: {fileID: 0}
   button: {fileID: 114530475735513830}
 --- !u!114 &114476462226384152

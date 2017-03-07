@@ -182,7 +182,7 @@ ISourceStateHandler
 
 
 	
-			objectToDrag.transform.Rotate (new Vector3 (0, rotateDirection, 0));
+		objectToDrag.transform.Rotate (new Vector3 (0, rotateDirection, 0));
 
 		if (IsKeepUpright)
 		{

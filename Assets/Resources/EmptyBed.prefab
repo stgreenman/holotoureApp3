@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefa817899f680e429fafbb43d96762c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MenuOffSet: {x: -0.1, y: -0.1, z: 0}
+  MenuOffSet: {x: -0.1, y: 0.2, z: 0}
   popupMenu: {fileID: 0}
   button: {fileID: 114810155705816262}
 --- !u!114 &114810155705816262

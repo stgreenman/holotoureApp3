@@ -17,7 +17,8 @@ namespace HoloToolkit.Unity.InputModule.Tests
 			instance = this;
 			GameObject.FindObjectOfType<InputManager> ().PushFallbackInputHandler(this.gameObject);
 	}
-	
+
+
 		public void OnInputUp(InputEventData eventData){
 	
 			inputDown = false;

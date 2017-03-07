@@ -36,6 +36,8 @@ public class CustomerManager : MonoBehaviour {
 		myRegistry = JsonUtility.FromJson<CustomerRegistry> (RegistryString);
 		*/
 
+		Debug.Log ("entered initializeCustomers");
+
 		foreach (CustomerInfo pair in myRegistry.customerList) {
 
 			foreach (FurniturePreference pref in pair.furnPrefs) {
