@@ -9,6 +9,8 @@ public class CustomerManager : MonoBehaviour {
 
 	public CustomerRegistry myRegistry;
 	public bool saveOnStart; 
+	private WWW CustomerJson; 
+
 
 	FurnitureManager FurnManager;
 	MaterialManager matManager;
@@ -18,15 +20,43 @@ public class CustomerManager : MonoBehaviour {
 		FurnManager = GameObject.FindObjectOfType<FurnitureManager> ();
 		matManager = GameObject.FindObjectOfType<MaterialManager> ();
 
+		string url = "https://s3-us-west-2.amazonaws.com/holoture/JSONfiles/customerList.json";
+		CustomerJson = new WWW(url);
 
+		/* Harrison Commented Out
 		if (saveOnStart) {
 			//SerializeCustomers ();
 		}
+		*/
 
+		StartCoroutine(getCustRegistry());
+
+		/* Harrison Commented Out
 		InitializeCustomers ();
+		*/
 
 	}
 
+	public IEnumerator getCustRegistry()
+	{
+		Debug.Log("get Cust Registry");
+		yield return CustomerJson;
+
+
+
+		if (CustomerJson.error == null)
+		{
+			//Debug.Log(CustomerJson.text);
+			myRegistry = JsonUtility.FromJson<CustomerRegistry>(CustomerJson.text);
+			//myRegistry = ProcessRegistryJson(CustomerJson.text);
+			InitializeCustomers();
+
+		}
+		else
+		{
+			Debug.Log("ERROR: " + CustomerJson.error);
+		}
+	}
 
 
 	void InitializeCustomers(){
