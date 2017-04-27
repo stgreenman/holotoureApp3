@@ -6018,102 +6018,102 @@ MonoBehaviour:
   myRegistry:
     myPairings:
     - FurnName: Table Lamp
-      id: 1
+      id: 27
       DefaultMaterial: 5
       IconName: TableLampIcon
       myType: 3
     - FurnName: Gredon Desk
-      id: 2
+      id: 80
       DefaultMaterial: 5
       IconName: GreydonDeskIcon
       myType: 1
     - FurnName: AM Stand
-      id: 3
+      id: 12
       DefaultMaterial: 6
       IconName: AMNightStandIcon
       myType: 1
     - FurnName: Television
-      id: 4
+      id: 81
       DefaultMaterial: 7
       IconName: TelevisionIcon
       myType: 3
     - FurnName: AM Table
-      id: 5
+      id: 11
       DefaultMaterial: 7
       IconName: AMTableIcon
       myType: 1
     - FurnName: EmptyBed
-      id: 6
+      id: 19
       DefaultMaterial: 7
       IconName: EmptyBedIcon
       myType: 3
     - FurnName: FlowerBed
-      id: 7
+      id: 20
       DefaultMaterial: 8
       IconName: FlowerBedIcon
       myType: 3
     - FurnName: Cabinet
-      id: 8
+      id: 28
       DefaultMaterial: 8
       IconName: WoodenCabinetIcon
       myType: 1
     - FurnName: Wooden Chair
-      id: 9
+      id: 29
       DefaultMaterial: 8
       IconName: WoodenChairIcon
       myType: 0
     - FurnName: Wooden Desk
-      id: 10
+      id: 30
       DefaultMaterial: 8
       IconName: WoodenDeskIcon
       myType: 1
     - FurnName: Wooden Table
-      id: 11
+      id: 31
       DefaultMaterial: 8
       IconName: WoodenTableIcon
       myType: 1
     - FurnName: Armchair
-      id: 12
+      id: 13
       DefaultMaterial: 8
       IconName: ArmchairIcon2
       myType: 2
     - FurnName: Cactus 1
-      id: 13
+      id: 16
       DefaultMaterial: 8
       IconName: Cactus1Icon
       myType: 3
     - FurnName: Cactus 2
-      id: 14
+      id: 17
       DefaultMaterial: 8
       IconName: Cactus2Icon
       myType: 3
     - FurnName: Simple Couch
-      id: 15
+      id: 24
       DefaultMaterial: 8
       IconName: SimpleCouchIcon
       myType: 2
     - FurnName: Cab Chair
-      id: 16
+      id: 14
       DefaultMaterial: 8
       IconName: CabChairIcon
       myType: 0
     - FurnName: Cab Table
-      id: 17
+      id: 15
       DefaultMaterial: 8
       IconName: CabTableIcon
       myType: 1
     - FurnName: Soft Armchair
-      id: 18
+      id: 25
       DefaultMaterial: 8
       IconName: SoftArmchairIcon
       myType: 2
     - FurnName: Soft Couch
-      id: 19
+      id: 26
       DefaultMaterial: 8
       IconName: SoftCouchIcon
       myType: 2
     - FurnName: AM Bed
-      id: 20
+      id: 10
       DefaultMaterial: 8
       IconName: AMBedIcon
       myType: 3

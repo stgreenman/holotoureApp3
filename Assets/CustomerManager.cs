@@ -20,7 +20,9 @@ public class CustomerManager : MonoBehaviour {
 		FurnManager = GameObject.FindObjectOfType<FurnitureManager> ();
 		matManager = GameObject.FindObjectOfType<MaterialManager> ();
 
+		//string url = "https://s3-us-west-2.amazonaws.com/holoture/JSONfiles/customerRegistryA.json";
 		string url = "http://mysterious-citadel-61929.herokuapp.com/api/customerRegistry";
+
 		CustomerJson = new WWW(url);
 
 		/* Harrison Commented Out
